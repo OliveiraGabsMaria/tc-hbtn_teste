@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Person {
@@ -54,7 +55,7 @@ public class Person {
     }
 
     public boolean isMEI(){
-        if (calculateYearlySalary() < 130000 == true) {return false;}
+        if (calculateYearlySalary() < 130000) {return false;}
 
         LocalDate personBirthDate = LocalDate.ofInstant(this.birthDate.toInstant(), ZoneId.systemDefault());
         LocalDate currentDate = LocalDate.now();

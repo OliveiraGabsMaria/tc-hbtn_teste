@@ -55,7 +55,7 @@ public class Person {
     }
 
     public boolean isMEI(){
-        if (calculateYearlySalary() < 130000) return false;
+        if (calculateYearlySalary() > 130000) return false;
 
         LocalDate personBirthDate = LocalDate.ofInstant(this.birthdate.toInstant(), ZoneId.systemDefault());
         LocalDate currentDate = LocalDate.now();

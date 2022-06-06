@@ -7,16 +7,16 @@ import java.util.Date;
 public class Person {
     private String name;
     private String surname;
-    private Date birthDate;
+    private Date birthdate;
     private boolean anotherCompanyOwner;
     private boolean pensioner;
     private boolean publicServer;
     private float salary;
 
-    public Person(String name, String surname, Date birthDate, boolean anotherCompanyOwner, boolean pensioner, boolean publicServer){
+    public Person(String name, String surname, Date birthdate, boolean anotherCompanyOwner, boolean pensioner, boolean publicServer){
         this.name = name;
         this.surname = surname;
-        this.birthDate = birthDate;
+        this.birthdate = birthdate;
         this.anotherCompanyOwner = anotherCompanyOwner;
         this.pensioner = pensioner;
         this.publicServer = publicServer;
@@ -38,8 +38,8 @@ public class Person {
         return this.salary*12;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
     }
 
     public void setAnotherCompanyOwner(boolean anotherCompanyOwner) {
@@ -55,16 +55,16 @@ public class Person {
     }
 
     public boolean isMEI(){
-        if (calculateYearlySalary() < 130000) {return false;}
+        if (calculateYearlySalary() < 130000) return false;
 
-        LocalDate personBirthDate = LocalDate.ofInstant(this.birthDate.toInstant(), ZoneId.systemDefault());
+        LocalDate personBirthDate = LocalDate.ofInstant(this.birthdate.toInstant(), ZoneId.systemDefault());
         LocalDate currentDate = LocalDate.now();
         Period period = Period.between(personBirthDate, currentDate);
 
-        if (period.getYears() < 18) { return false; }
-        if (anotherCompanyOwner) { return false; }
-        if (pensioner){ return false; }
-        if (publicServer) { return false; }
+        if (period.getYears() < 18) return false;
+        if (anotherCompanyOwner) return false;
+        if (pensioner) return false;
+        if (publicServer) return false;
 
         return true;
     }

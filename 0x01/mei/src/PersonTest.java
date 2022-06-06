@@ -36,7 +36,7 @@ public class PersonTest {
 
     @Test
     void person_is_MEI(){
-        person.setBirthDate(new Date(2000));
+        person.setBirthdate(new Date(2000));
         person.setSalary(1200);
         person.setAnotherCompanyOwner(false);
         person.setPensioner(false);
